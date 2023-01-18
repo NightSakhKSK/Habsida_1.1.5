@@ -16,7 +16,7 @@ public class Main {
         connection.saveUser("SCARRA", "LEE", (byte) 30);
         connection.saveUser("VALKYRAE", "HOUFFSTETTER", (byte) 29);
         connection.saveUser("QUARTERJADE", "VALORANT", (byte) 26);
-        connection.saveUser("MASSAYOSHI", "JOHN", (byte) 30);
+        connection.saveUser("MASSAYOSHII", "JOHN", (byte) 30);
         connection.getAllUsers();
         System.out.println(connection.getAllUsers().toString());
         connection.cleanUsersTable();
