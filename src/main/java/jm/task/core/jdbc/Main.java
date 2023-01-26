@@ -1,11 +1,7 @@
 package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
-import jm.task.core.jdbc.model.User;
-import jm.task.core.jdbc.util.Util;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -21,5 +17,6 @@ public class Main {
         System.out.println(connection.getAllUsers().toString());
         connection.cleanUsersTable();
         connection.dropUsersTable();
+
     }
 }

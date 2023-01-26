@@ -19,7 +19,8 @@ public class UserDaoHibernateImpl implements UserDao {
     public void createUsersTable() {
         try (Session session = factory.openSession()) {
             session.beginTransaction();
-            String sql = "CREATE TABLE mydbtest.`users`" +
+            String sql =
+                    "CREATE TABLE IF NOT EXISTS mydbtest.`users`" +
                     "(`ID` INT NOT NULL AUTO_INCREMENT," +
                     "`NAME` VARCHAR(50)," +
                     "`LAST_NAME` VARCHAR(50)," +
@@ -27,8 +28,6 @@ public class UserDaoHibernateImpl implements UserDao {
                     "PRIMARY KEY (`ID`))";
             session.createNativeQuery(sql).executeUpdate();
             session.getTransaction().commit();
-        } catch (PersistenceException e) {
-            System.out.println("Таблица users уже существует");
         }
     }
 
@@ -36,11 +35,9 @@ public class UserDaoHibernateImpl implements UserDao {
     public void dropUsersTable() {
         try (Session session = factory.openSession()) {
             session.beginTransaction();
-            String sql = "DROP TABLE mydbtest.`users`";
+            String sql = "DROP TABLE IF EXISTS mydbtest.`users`";
             session.createSQLQuery(sql).executeUpdate();
             session.getTransaction().commit();
-        } catch (PersistenceException e) {
-            System.err.println(e);
         }
     }
 

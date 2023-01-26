@@ -11,6 +11,11 @@ import org.hibernate.service.ServiceRegistry;
 import java.util.Properties;
 
 public class Util {
+
+    private Util() {
+
+    }
+
     private static SessionFactory sessionFactory;
 
     public static SessionFactory getConnection() {
